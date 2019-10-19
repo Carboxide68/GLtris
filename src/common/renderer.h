@@ -1,6 +1,7 @@
 #pragma once
 #include <signal.h>
 #include <iostream>
+#include <vector>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include "../math/vector.h"

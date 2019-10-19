@@ -1,33 +1,21 @@
+#pragma once
 #include "../common/renderer.h"
+#include "shapes.h"
+#include "board.h"
 
-class Block {
-
-public:
-
-	Block(int x, int y);
-
-private:
-
-	Vec2 m_Pos;
-
-};
-
-class TetrisTile {
+class Tile {
 
 public:
 
-	TetrisTile(Block block, int color);
+	Tile(int texture);
+
+	void setTexture(int texture);
+
+	int getTexture() const;
 
 private:
 
-	int m_Color;
-	Block m_Block;
-
-};
-
-struct Shape {
-
-	Block blocks[4];
+	int m_Texture;
 
 };
 
@@ -35,16 +23,18 @@ class TetrisEntity {
 
 public:
 
-	TetrisEntity();
+	TetrisEntity(int color);
 
 	void rotate(int dir);
 
+	Shape getShape() const;
+
+	Vec2 pos;
+	int texture;
+
 private:
 
-	void m_Rotate(int dir);
-	void m_RotateNES(int dir);
+	int m_Shape;
+	int m_Rotation;
 
-	int color;
-	int rotation;
-	Shape shape;
 };
